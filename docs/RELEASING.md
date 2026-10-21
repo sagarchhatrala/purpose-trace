@@ -54,7 +54,18 @@ file handling, copy button, keyboard navigation, and narrow viewport layout.
 
 ## Current session status
 
-The local implementation and command-driven verification are complete for the
-documented scope. GitHub publication and browser verification were blocked by
-the execution environment. Consult the handoff artifacts and validation record
-before representing this release as deployed.
+The public repository and portfolio page were published on 2026-10-22,
+Asia/Kolkata. Installed-package CI passed on Python 3.11–3.15; preview and live
+Chromium checks, Pages deployment, and the release-artifact build passed. See
+[the validation record](VALIDATION.md) for commits, run links, and limitations.
+
+Publication used GitHub MCP because shell Git networking remained blocked. MCP
+created new commits from the verified local file contents. The portfolio update
+preserved upstream history and its complete Git tree matched the tested change.
+The original local project history and independently initialized portfolio
+snapshot therefore have different commit IDs from their published counterparts.
+Use a fresh clone of each public repository for subsequent Git development;
+retain the original delivery bundle as historical evidence.
+
+The release workflow currently provides downloadable Actions artifacts for 30
+days. A versioned GitHub release and PyPI publication have not been performed.

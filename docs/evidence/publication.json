@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-22",
+  "timezone": "Asia/Kolkata",
+  "repository": "https://github.com/sagarchhatrala/purpose-trace",
+  "website": "https://sagarchhatrala.github.io/purpose-trace/",
+  "initial_source_commit": "e85eca62c8a5944a3764b88f830a988bfbabc5e8",
+  "website_commit": "8402da32ec890f3802ad6cec547ba7b48cdcfa17",
+  "previous_website_commit": "3d3e62d96ee39746111bdd2a9e3a0500967598a6",
+  "publication_transport": "GitHub MCP; file contents matched local Git hashes; website upstream history retained",
+  "workflows": [
+    {
+      "id": 39681679155,
+      "name": "Build release artifacts",
+      "url": "https://github.com/sagarchhatrala/purpose-trace/actions/runs/39681679155",
+      "source_commit": "e85eca62c8a5944a3764b88f830a988bfbabc5e8",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39681673808,
+      "name": "Verify project page in Chromium",
+      "url": "https://github.com/sagarchhatrala/purpose-trace/actions/runs/39681673808",
+      "source_commit": "e85eca62c8a5944a3764b88f830a988bfbabc5e8",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39681137563,
+      "name": "Installed package workflows",
+      "url": "https://github.com/sagarchhatrala/purpose-trace/actions/runs/39681137563",
+      "source_commit": "e85eca62c8a5944a3764b88f830a988bfbabc5e8",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 39681137493,
+      "name": "Verify project page in Chromium",
+      "url": "https://github.com/sagarchhatrala/purpose-trace/actions/runs/39681137493",
+      "source_commit": "e85eca62c8a5944a3764b88f830a988bfbabc5e8",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "pages": {
+    "run_id": 39681273329,
+    "url": "https://github.com/sagarchhatrala/sagarchhatrala.github.io/actions/runs/39681273329",
+    "conclusion": "success"
+  },
+  "live_checks": [
+    "page and published assets match this checkout",
+    "keyboard skip link and all three routing strategies",
+    "recorded report and interpretation boundaries",
+    "local JSON import stays local and renders text safely",
+    "malformed JSON and invalid report schema fail visibly",
+    "clipboard copies the exact quickstart",
+    "desktop and narrow layouts keep controls within the viewport",
+    "homepage and existing project routes remain available"
+  ],
+  "live_browser_artifact": {
+    "id": 12383987745,
+    "node_id": "MDg6QXJ0aWZhY3QxMjM4Mzk4Nzc0NQ==",
+    "name": "browser-live",
+    "size_in_bytes": 1593134,
+    "url": "https://api.github.com/repos/sagarchhatrala/purpose-trace/actions/artifacts/12383987745",
+    "archive_download_url": "https://api.github.com/repos/sagarchhatrala/purpose-trace/actions/artifacts/12383987745/zip",
+    "expired": false,
+    "created_at": "2026-10-21T21:48:42Z",
+    "updated_at": "2026-10-21T21:48:42Z",
+    "expires_at": "2026-11-20T21:48:41Z",
+    "digest": "sha256:4de7cd249d0fc5211003b6f5954d760a6030d3820348817214b8b1392a7556af",
+    "workflow_run": {
+      "id": 39681673808,
+      "repository_id": 1428960641,
+      "head_repository_id": 1428960641,
+      "head_branch": "main",
+      "head_sha": "e85eca62c8a5944a3764b88f830a988bfbabc5e8"
+    }
+  },
+  "release_build_artifact": {
+    "id": 12384841543,
+    "node_id": "MDg6QXJ0aWZhY3QxMjM4NDg0MTU0Mw==",
+    "name": "purpose-trace-release",
+    "size_in_bytes": 71248,
+    "url": "https://api.github.com/repos/sagarchhatrala/purpose-trace/actions/artifacts/12384841543",
+    "archive_download_url": "https://api.github.com/repos/sagarchhatrala/purpose-trace/actions/artifacts/12384841543/zip",
+    "expired": false,
+    "created_at": "2026-10-21T21:48:25Z",
+    "updated_at": "2026-10-21T21:48:25Z",
+    "expires_at": "2026-11-20T21:48:24Z",
+    "digest": "sha256:bdad183614cfb1665b061eef821b19d7aeaaab8e9b6ff9a1bbc4a702958b3823",
+    "workflow_run": {
+      "id": 39681679155,
+      "repository_id": 1428960641,
+      "head_repository_id": 1428960641,
+      "head_branch": "main",
+      "head_sha": "e85eca62c8a5944a3764b88f830a988bfbabc5e8"
+    }
+  },
+  "local_artifacts_preserved": true,
+  "versioned_github_release_published": false,
+  "pypi_published": false
+}
