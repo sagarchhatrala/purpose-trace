@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PurposeTrace compares agent executions to find private information leaking through otherwise permitted decisions. Local CLI, reproducible evidence, and explicit privacy policies.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="theme-color" content="#112c32">
+  <link rel="canonical" href="https://sagarchhatrala.github.io/purpose-trace/">
+  <link rel="icon" href="./mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+  <title>PurposeTrace — Privacy lives between executions.</title>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="shell nav">
+    <a class="brand" href="./" aria-label="PurposeTrace home"><img src="./mark.svg" alt="" width="30" height="30">PurposeTrace<span class="version">1.0</span></a>
+    <nav aria-label="Main"><a href="#how">How it works</a><a href="#inspect">Inspect a report</a><a class="nav-source" href="https://github.com/sagarchhatrala/purpose-trace">GitHub ↗</a></nav>
+  </header>
+  <main id="main">
+    <section class="shell hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot"></span> EXECUTION PRIVACY / OPEN SOURCE</p>
+        <h1>Same permission.<br>Different choice.<br><em>Hidden disclosure.</em></h1>
+        <p class="lead">An agent can reveal private information without sending a single private word. PurposeTrace finds the difference between executions that should agree.</p>
+        <div class="actions"><a class="button primary" href="#start">Run your first audit <span>↗</span></a><a class="text-link" href="#how">See the problem <span>↓</span></a></div>
+        <div class="hero-facts"><span>Local Python tool</span><span>No model calls</span><span>No runtime dependencies</span></div>
+      </div>
+      <div class="instrument" aria-label="A comparison of two support routing executions">
+        <div class="instrument-top"><span class="mono">COMPARISON 001</span><span class="live">Same authorized view</span></div>
+        <div class="shared"><span class="mini-label">AUTHORIZED IN BOTH RUNS</span><p>Standard support · Billing request</p><div class="queues"><span>east available</span><span>west available</span></div></div>
+        <div class="worlds">
+          <article class="world"><span class="world-label">EXECUTION A</span><div class="context"><span>Private account note</span><strong>Ordinary account</strong></div><div class="path-line"></div><span class="mini-label">DISCLOSED QUEUE</span><p class="queue">billing-east</p><span class="allowed">✓ Permitted queue</span></article>
+          <article class="world"><span class="world-label">EXECUTION B</span><div class="context"><span>Private account note</span><strong>Confidential review</strong></div><div class="path-line"></div><span class="mini-label">DISCLOSED QUEUE</span><p class="queue danger">billing-west</p><span class="allowed">✓ Permitted queue</span></article>
+        </div>
+        <div class="instrument-result"><span class="result-icon">≠</span><div><strong>Private context moved the decision.</strong><p>Compare the runs. Find the channel.</p></div></div>
+        <p class="instrument-note">Synthetic example · No messages are sent</p>
+      </div>
+    </section>
+    <section class="principle"><div class="shell principle-grid"><p class="eyebrow">THE QUESTION CHANGES</p><p>“Is this output allowed?”<br><strong>“What made this output different?”</strong></p><span class="principle-index">A ↔ B</span></div></section>
+    <section class="shell section" id="how">
+      <div class="section-heading"><div><p class="eyebrow">01 / MAKE THE DEPENDENCE VISIBLE</p><h2>Change the private context.<br>Watch what leaves.</h2></div><p>Hold the permitted inputs constant. Compare the meaningful disclosure, with explicit handling for randomness and missing evidence.</p></div>
+      <div class="lab">
+        <div class="lab-controls"><span class="mini-label">TRY A ROUTING STRATEGY</span><div class="segmented" role="group" aria-label="Routing strategy"><button type="button" data-scenario="leak" aria-pressed="true">Private note influences route</button><button type="button" data-scenario="clean" aria-pressed="false">Authorized inputs only</button><button type="button" data-scenario="mismatch" aria-pressed="false">Inputs do not match</button></div><p class="lab-help">This interactive example runs locally in your browser. The Python CLI performs the full policy validation, repeated execution, and statistical analysis.</p></div>
+        <div class="lab-body" aria-live="polite" aria-atomic="true"><div class="lab-runs"><div><span class="mini-label">A / ORDINARY NOTE</span><strong id="output-a">billing-east</strong><p id="input-a">Standard support</p></div><span class="compare-symbol" id="comparison-symbol">≠</span><div><span class="mini-label">B / CONFIDENTIAL NOTE</span><strong id="output-b">billing-west</strong><p id="input-b">Standard support</p></div></div><div class="lab-verdict" id="lab-verdict" data-state="violation"><span id="lab-status">VIOLATION</span><p id="lab-explanation">Authorized inputs match. The selected queue changes with the private note.</p></div></div>
+      </div>
+      <div class="steps"><article><span class="step-num">01</span><h3>Declare the boundary.</h3><p>Classify every input. Select the disclosure fields that matter. Missing or undeclared fields stop the audit.</p></article><article><span class="step-num">02</span><h3>Collect comparable runs.</h3><p>Fix the agent version and environment. Vary the private context. Repeat with controlled seeds or independent samples.</p></article><article><span class="step-num">03</span><h3>Keep the evidence.</h3><p>Get changed field paths, sample coverage, and a clear exit code. Store minimized evidence and portable reports.</p></article></div>
+    </section>
+    <section class="dark-section" id="start"><div class="shell start-grid"><div><p class="eyebrow">02 / RUN IT ON YOUR MACHINE</p><h2>A real workflow.<br>An inspectable result.</h2><p>Install from source, then execute the included synthetic routing adapter. The first campaign deliberately exposes a disclosure dependency.</p><a class="text-link light-link" href="https://github.com/sagarchhatrala/purpose-trace/tree/main/docs">Read the full documentation ↗</a><div class="requirements">Python 3.11+<br>Local replay: macOS or Linux<br>File audits: platform independent</div></div><div class="terminal"><div class="terminal-title"><span>TERMINAL / QUICKSTART</span><button type="button" id="copy-command" aria-label="Copy quickstart commands">Copy</button></div><pre><code id="quickstart">git clone https://github.com/sagarchhatrala/purpose-trace.git
+cd purpose-trace
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install .
+
+purpose-trace run \
+  --policy examples/policy.json \
+  --manifest examples/manifest.json \
+  --output /tmp/purpose-leak \
+  -- python examples/leaky_router.py</code></pre><div class="terminal-result"><span>EXPECTED RESULT</span><strong>VIOLATION <small>exit 1</small></strong><p>12 executions · 3 comparison groups · /queue</p></div><p id="copy-status" class="copy-status" role="status"></p></div></div></section>
+    <section class="shell section" id="inspect"><div class="section-heading"><div><p class="eyebrow">03 / OPEN THE EVIDENCE</p><h2>Your report.<br>On your device.</h2></div><p>Load the JSON report from your own campaign. The viewer displays the result already computed by PurposeTrace. Your file stays in this browser.</p></div><div class="report-box"><div class="report-toolbar"><label class="button secondary" for="report-file">Open report.json <span>↑</span></label><input type="file" id="report-file" accept=".json,application/json"><button type="button" id="sample-report" class="text-button">Load recorded example ↗</button><span class="local-label">No upload · No analytics</span></div><p id="report-message" role="status">Choose a report or inspect the recorded synthetic campaign.</p><div id="report-content" hidden><div class="report-summary"><strong id="report-status"></strong><span id="report-counts"></span></div><p id="report-policy" class="mono report-policy"></p><div id="report-groups"></div><details class="boundaries"><summary>Interpretation boundaries</summary><ul id="report-limitations"></ul></details></div></div></section>
+    <section class="shell scope-grid"><div><p class="eyebrow">BUILT FOR A CLEAR JOB</p><h2>Evidence before<br>the next release.</h2></div><div><h3>Bounded offline audits and CI gates.</h3><p>Deterministic mode checks repeatability and matched observations. Statistical mode compares distributions with corrected significance thresholds. Incomplete evidence returns an inconclusive result.</p><p>A clean result describes the executions you supplied. Your policy, collector, environment controls, and coverage determine what it means. Replay runs trusted adapters; it is not an operating-system sandbox.</p><a class="text-link" href="https://github.com/sagarchhatrala/purpose-trace/blob/main/docs/SECURITY_MODEL.md">Understand the security model ↗</a></div></section>
+  </main>
+  <footer class="shell footer"><div><a class="brand" href="./">PurposeTrace</a><p>Make the dependence visible.</p></div><div><a href="https://github.com/sagarchhatrala/purpose-trace">Source code ↗</a><a href="https://github.com/sagarchhatrala/purpose-trace/tree/main/docs">Documentation ↗</a><a href="https://sagarchhatrala.github.io/">Built by Sagar Chhatrala ↗</a></div><span class="mono">MIT / LOCAL FIRST</span></footer>
+</body></html>

@@ -1,0 +1,13 @@
+PurposeTrace
+Canonical page: https://sagarchhatrala.github.io/purpose-trace/
+Source: https://github.com/sagarchhatrala/purpose-trace
+Documentation: https://github.com/sagarchhatrala/purpose-trace/tree/main/docs
+PurposeTrace compares agent executions to find unauthorized dependence on private context.
+It is a Python 3.11+ CLI and library with no runtime dependencies.
+Supported scope: bounded offline audits and single-host CI release gates.
+Modes: deterministic matched-seed comparison and statistical label-permutation comparison.
+Features: explicit field policies, local trusted-adapter replay, SQLite evidence storage, backup, JSON and HTML reporting.
+Exit codes: 0 observed consistency/no statistical signal, 1 violation, 2 operational error, 3 inconclusive, 130 interruption.
+The public page is static and includes a synthetic demonstration and local report viewer.
+Local replay is not an OS sandbox. A clean finite audit is not proof of universal privacy.
+Author: Sagar Chhatrala. License: MIT.

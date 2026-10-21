@@ -1,0 +1,51 @@
+name: Verify project page in Chromium
+on:
+  push:
+    branches: [main]
+    paths: ['site/**', '.github/browser/**', '.github/workflows/browser.yml']
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Page to verify
+        type: choice
+        options: [preview, live]
+        default: preview
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned browser tooling
+        working-directory: .github/browser
+        run: |
+          npm install --ignore-scripts --no-package-lock
+          npx playwright install --with-deps chromium
+      - name: Start local preview
+        if: inputs.target != 'live'
+        run: |
+          python -m http.server 8765 --bind 127.0.0.1 --directory site > "$RUNNER_TEMP/preview.log" 2>&1 &
+          for attempt in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:8765/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          exit 1
+      - name: Exercise the real browser
+        env:
+          BROWSER_TARGET: ${{ inputs.target || 'preview' }}
+          BROWSER_OUTPUT: ${{ runner.temp }}/browser-evidence
+        run: node .github/browser/check.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-${{ inputs.target || 'preview' }}
+          path: ${{ runner.temp }}/browser-evidence
+          retention-days: 30

@@ -1,0 +1,12 @@
+{
+  "name": "PurposeTrace",
+  "version": "1.0.0",
+  "description": "Compare agent executions to detect unauthorized dependence on private context.",
+  "url": "https://sagarchhatrala.github.io/purpose-trace/",
+  "repository": "https://github.com/sagarchhatrala/purpose-trace",
+  "license": "MIT",
+  "runtime": "Python 3.11+",
+  "scope": "Bounded offline audits and single-host CI release gates",
+  "runtime_dependencies": [],
+  "author": "Sagar Chhatrala"
+}

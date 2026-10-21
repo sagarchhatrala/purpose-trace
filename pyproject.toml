@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "purpose-trace"
+version = "1.0.0"
+description = "Compare agent executions to detect unauthorized dependence on private context."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Sagar Chhatrala"}]
+keywords = ["agents", "privacy", "security", "audit", "noninterference"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Security"]
+dependencies = []
+
+[project.scripts]
+purpose-trace = "purpose_trace.cli:main"
+
+[project.urls]
+Homepage = "https://sagarchhatrala.github.io/purpose-trace/"
+Repository = "https://github.com/sagarchhatrala/purpose-trace"
+Documentation = "https://github.com/sagarchhatrala/purpose-trace/tree/main/docs"
+
+[tool.setuptools.packages.find]
+where = ["src"]

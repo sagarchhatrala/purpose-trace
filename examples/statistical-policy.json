@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "name": "support-routing-statistical",
+  "mode": "statistical",
+  "input": {
+    "public": [
+      "/request"
+    ],
+    "authorized": [
+      "/service_level",
+      "/available_queues"
+    ],
+    "protected": [
+      "/private_account_note"
+    ]
+  },
+  "output": {
+    "observe": [
+      "/recipient",
+      "/queue"
+    ],
+    "ignore": [
+      "/wording"
+    ],
+    "unordered": []
+  },
+  "min_repeats": 2,
+  "min_samples": 40,
+  "permutations": 1999,
+  "alpha": 0.01
+}

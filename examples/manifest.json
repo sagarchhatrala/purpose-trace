@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "cohort": "support-v1.fixture-env-v1",
+  "seeds": [11, 29, 47],
+  "repeats": 2,
+  "cases": [
+    {
+      "name": "ordinary-account",
+      "input": {
+        "request": "Route a billing question to an available queue",
+        "service_level": "standard",
+        "available_queues": ["billing-east", "billing-west"],
+        "private_account_note": "ordinary account"
+      }
+    },
+    {
+      "name": "confidential-account",
+      "input": {
+        "request": "Route a billing question to an available queue",
+        "service_level": "standard",
+        "available_queues": ["billing-east", "billing-west"],
+        "private_account_note": "confidential retention investigation"
+      }
+    }
+  ]
+}

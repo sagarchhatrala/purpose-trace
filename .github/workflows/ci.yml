@@ -1,0 +1,50 @@
+name: Installed package workflows
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exercise:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.12', '3.13', '3.14', '3.15']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Build and install wheel
+        run: |
+          python -m pip wheel --no-deps . -w dist
+          python -m pip install --no-deps dist/*.whl
+          python -m pip check
+          purpose-trace --version
+      - name: Exercise real synthetic adapters
+        shell: bash
+        run: |
+          purpose-trace validate --policy examples/policy.json
+          purpose-trace run --policy examples/policy.json --manifest examples/manifest.json --output "$RUNNER_TEMP/private" -- python examples/private_router.py
+          result=0
+          purpose-trace run --policy examples/policy.json --manifest examples/manifest.json --output "$RUNNER_TEMP/leak" -- python examples/leaky_router.py || result=$?
+          if [ "$result" -ne 1 ]; then exit 1; fi
+      - name: Exercise persistence and recovery
+        shell: bash
+        run: |
+          purpose-trace ingest --policy examples/policy.json --traces "$RUNNER_TEMP/private/traces.jsonl" --db "$RUNNER_TEMP/evidence.sqlite"
+          purpose-trace ingest --policy examples/policy.json --traces "$RUNNER_TEMP/private/traces.jsonl" --db "$RUNNER_TEMP/evidence.sqlite"
+          purpose-trace health --db "$RUNNER_TEMP/evidence.sqlite"
+          purpose-trace backup --db "$RUNNER_TEMP/evidence.sqlite" --output "$RUNNER_TEMP/backup.sqlite"
+          purpose-trace audit --policy examples/policy.json --db "$RUNNER_TEMP/backup.sqlite"
+      - name: Retain campaign evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: workflows-python-${{ matrix.python }}
+          path: |
+            ${{ runner.temp }}/private/report.*
+            ${{ runner.temp }}/leak/report.*
+          retention-days: 14

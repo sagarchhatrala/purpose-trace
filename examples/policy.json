@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "name": "support-routing",
+  "mode": "deterministic",
+  "input": {
+    "public": ["/request"],
+    "authorized": ["/service_level", "/available_queues"],
+    "protected": ["/private_account_note"]
+  },
+  "output": {
+    "observe": ["/recipient", "/queue"],
+    "ignore": ["/wording"],
+    "unordered": []
+  },
+  "min_repeats": 2
+}

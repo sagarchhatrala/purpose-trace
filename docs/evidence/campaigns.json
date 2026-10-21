@@ -1,0 +1,92 @@
+{
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "wheel_sha256": "942c4373915f0939c36c11278ae9cf1c3356c32b8d51ad19611a8eeaee5b13d1",
+  "campaigns": [
+    {
+      "python": "3.14",
+      "workflow": "deterministic-leak",
+      "exit_code": 1,
+      "status": "VIOLATION",
+      "records": 12,
+      "groups": 3,
+      "elapsed_seconds": 0.389
+    },
+    {
+      "python": "3.14",
+      "workflow": "deterministic-private",
+      "exit_code": 0,
+      "status": "CONSISTENT",
+      "records": 12,
+      "groups": 3,
+      "elapsed_seconds": 0.363
+    },
+    {
+      "python": "3.14",
+      "workflow": "statistical-leak",
+      "exit_code": 1,
+      "status": "VIOLATION",
+      "records": 80,
+      "groups": 1,
+      "elapsed_seconds": 2.328,
+      "p_value": 0.0005,
+      "max_total_variation": 0.95,
+      "corrected_alpha": 0.01
+    },
+    {
+      "python": "3.14",
+      "workflow": "statistical-private",
+      "exit_code": 0,
+      "status": "NO_DIFFERENCE_DETECTED",
+      "records": 80,
+      "groups": 1,
+      "elapsed_seconds": 2.327,
+      "p_value": 0.64,
+      "max_total_variation": 0.075,
+      "corrected_alpha": 0.01
+    },
+    {
+      "python": "3.15",
+      "workflow": "deterministic-leak",
+      "exit_code": 1,
+      "status": "VIOLATION",
+      "records": 12,
+      "groups": 3,
+      "elapsed_seconds": 0.526
+    },
+    {
+      "python": "3.15",
+      "workflow": "deterministic-private",
+      "exit_code": 0,
+      "status": "CONSISTENT",
+      "records": 12,
+      "groups": 3,
+      "elapsed_seconds": 0.38
+    },
+    {
+      "python": "3.15",
+      "workflow": "statistical-leak",
+      "exit_code": 1,
+      "status": "VIOLATION",
+      "records": 80,
+      "groups": 1,
+      "elapsed_seconds": 2.443,
+      "p_value": 0.0005,
+      "max_total_variation": 0.95,
+      "corrected_alpha": 0.01
+    },
+    {
+      "python": "3.15",
+      "workflow": "statistical-private",
+      "exit_code": 0,
+      "status": "NO_DIFFERENCE_DETECTED",
+      "records": 80,
+      "groups": 1,
+      "elapsed_seconds": 2.512,
+      "p_value": 0.634,
+      "max_total_variation": 0.075,
+      "corrected_alpha": 0.01
+    }
+  ],
+  "actual_adapter_executions": 368
+}

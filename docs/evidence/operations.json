@@ -1,0 +1,223 @@
+[
+  {
+    "workflow": "import",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "status": null,
+    "elapsed_seconds": 0.306,
+    "inserted": 12,
+    "duplicates": 0,
+    "policy_records": 12
+  },
+  {
+    "workflow": "deduplicate",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "status": null,
+    "elapsed_seconds": 0.06,
+    "inserted": 0,
+    "duplicates": 12,
+    "policy_records": 12
+  },
+  {
+    "workflow": "audit-persistent-evidence",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "status": "VIOLATION",
+    "elapsed_seconds": 0.06,
+    "records": 12
+  },
+  {
+    "workflow": "consistent-backup",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "status": "backed_up",
+    "elapsed_seconds": 0.062
+  },
+  {
+    "workflow": "audit-restored-backup",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "status": "VIOLATION",
+    "elapsed_seconds": 0.062,
+    "records": 12
+  },
+  {
+    "workflow": "atomic-conflict-rollback",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.063
+  },
+  {
+    "workflow": "post-rollback-integrity",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "status": "ok",
+    "elapsed_seconds": 0.062,
+    "records": 12
+  },
+  {
+    "workflow": "detect-storage-corruption",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.061
+  },
+  {
+    "workflow": "four-process-concurrent-import",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "status": "ok",
+    "elapsed_seconds": 0.062,
+    "records": 12
+  },
+  {
+    "workflow": "unclassified-field",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.061
+  },
+  {
+    "workflow": "missing-observation",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.061
+  },
+  {
+    "workflow": "non-finite-number",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.061
+  },
+  {
+    "workflow": "numeric-range",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.06
+  },
+  {
+    "workflow": "unstable-repeat",
+    "exit_code": 3,
+    "expected_exit": 3,
+    "status": "INCONCLUSIVE",
+    "elapsed_seconds": 0.064,
+    "records": 4
+  },
+  {
+    "workflow": "insufficient-independent-repeats",
+    "exit_code": 3,
+    "expected_exit": 3,
+    "status": "INCONCLUSIVE",
+    "elapsed_seconds": 0.062,
+    "records": 2
+  },
+  {
+    "workflow": "duplicate-ids-do-not-inflate-coverage",
+    "exit_code": 3,
+    "expected_exit": 3,
+    "status": "INCONCLUSIVE",
+    "elapsed_seconds": 0.064,
+    "records": 2
+  },
+  {
+    "workflow": "authorized-input-mismatch",
+    "exit_code": 3,
+    "expected_exit": 3,
+    "status": "INCONCLUSIVE",
+    "elapsed_seconds": 0.063,
+    "records": 12
+  },
+  {
+    "workflow": "duplicate-json-keys",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.063
+  },
+  {
+    "workflow": "huge-integer",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.062
+  },
+  {
+    "workflow": "declared-unordered-output",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "status": "CONSISTENT",
+    "elapsed_seconds": 0.064,
+    "records": 12
+  },
+  {
+    "workflow": "overlapping-policy",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.062
+  },
+  {
+    "workflow": "correlated-statistical-seeds",
+    "exit_code": 3,
+    "expected_exit": 3,
+    "status": "INCONCLUSIVE",
+    "elapsed_seconds": 0.073,
+    "records": 80
+  },
+  {
+    "workflow": "venv-dependency-after-fix",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "status": "CONSISTENT",
+    "elapsed_seconds": 0.682,
+    "records": 12
+  },
+  {
+    "workflow": "timeout",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.179
+  },
+  {
+    "workflow": "output-flood",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.098
+  },
+  {
+    "workflow": "invalid-adapter-json",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.09
+  },
+  {
+    "workflow": "adapter-nonzero",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.087
+  },
+  {
+    "workflow": "minimal-env-and-temp-workspace",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "status": "CONSISTENT",
+    "elapsed_seconds": 0.433,
+    "records": 12
+  },
+  {
+    "workflow": "refuse-existing-output",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "status": "ERROR",
+    "elapsed_seconds": 0.065
+  }
+]
